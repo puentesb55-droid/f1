@@ -10,13 +10,13 @@
 
 // ═════════════════════════════════════════════════════════════════════════
 //  SECCIÓN 1: FUNCIONES AUXILIARES DE CONSTRUCCIÓN GEOMÉTRICA (BUILDERS)
-//  Explicación general: Estas funciones calculan matemáticamente los puntos
+//  Estas funciones calculan matemáticamente los puntos
 //  (nodos) que componen el circuito usando vectores, trigonometría y matrices.
 // ═════════════════════════════════════════════════════════════════════════
 
 /**
- * @brief Añade tramos rectos a la pista calculando los puntos secuencialmente.
- * Explicación para tu exposición: Recibe la posición actual (px, pz) y la dirección
+ *  Añade tramos rectos a la pista calculando los puntos secuencialmente.
+ * Recibe la posición actual (px, pz) y la dirección
  * angular (dir). Usando el seno y el coseno, calcula el vector de desplazamiento 
  * para avanzar hacia adelante de manera lineal dividiendo la longitud en sub-puntos (pts).
  */
@@ -51,9 +51,8 @@ static void addRecta(std::vector<NodoPista>& out,
     pz += dz * longitud;
 }
 
-/**
- * @brief Añade curvas perfectas basadas en arcos de circunferencia.
- * Explicación para tu exposición: Aplica trigonometría radial. Dependiendo de si el
+/** Añade curvas perfectas basadas en arcos de circunferencia.
+ * Aplica trigonometría radial. Dependiendo de si el
  * ángulo es positivo o negativo, gira hacia la derecha o izquierda. Además, calcula de forma 
  * dinámica un límite de velocidad lógico: a menor radio (curva más cerrada), la IA frenará más.
  */
@@ -112,8 +111,8 @@ static void addCurva(std::vector<NodoPista>& out,
 }
 
 /**
- * @brief Cierra el circuito uniendo de forma recta el último punto con el origen (nodo 0).
- * Explicación para tu exposición: Esto garantiza que los circuitos siempre se conecten
+ * Cierra el circuito uniendo de forma recta el último punto con el origen (nodo 0).
+ * Esto garantiza que los circuitos siempre se conecten
  * perfectamente sin importar que los cálculos manuales tengan pequeños errores de decimales.
  */
 static void cerrarCircuito(std::vector<NodoPista>& out,
@@ -139,8 +138,8 @@ static void cerrarCircuito(std::vector<NodoPista>& out,
 }
 
 /**
- * @brief Busca cuál es el nodo de la pista más cercano a un vehículo en el espacio 3D.
- * Explicación para tu exposición: Es una función crítica de optimización espacial. Realiza un
+ * Busca cuál es el nodo de la pista más cercano a un vehículo en el espacio 3D.
+ * Es una función crítica de optimización espacial. Realiza un
  * escaneo lineal calculando la distancia euclidiana entre la posición del auto y cada nodo. Devuelve 
  * el índice del nodo más cercano. Esto permite saber si el auto está en pista, en curva, o su velocidad límite.
  */
@@ -160,7 +159,7 @@ static int GetNodeIndex(const Auto& a, const std::vector<NodoPista>& nodos) {
 
 // ═════════════════════════════════════════════════════════════════════════
 //  SECCIÓN 2: CLASE PISTABUILDER (CATÁLOGO DE CIRCUITOS)
-//  Explicación general: Almacena las plantillas del diseño de trazados.
+//  Almacena las plantillas del diseño de trazados.
 //  Combina llamadas consecutivas a addRecta y addCurva pasándose las variables
 //  por referencia (px, pz, dir) para tejer el mapa de forma fluida.
 // ═════════════════════════════════════════════════════════════════════════
@@ -251,7 +250,7 @@ public:
 
 // ═════════════════════════════════════════════════════════════════════════
 //  SECCIÓN 3: CLASE PISTARENDERER (ENTORNO GRÁFICO Y GEOMETRÍA 3D)
-//  Explicación general: Es el motor gráfico de la pista. Genera de forma
+//  Es el motor gráfico de la pista. Genera de forma
 //  procedimental (usando semillas matemáticas fijas) los entornos, árboles,
 //  gradas, edificios y pinta los triángulos 3D de la pista con sus límites.
 // ═════════════════════════════════════════════════════════════════════════
@@ -259,8 +258,8 @@ class PistaRenderer {
 public:
 
     /**
-     * @brief Renderiza la decoración del mapa de forma algorítmica.
-     * Explicación para tu exposición: Calcula el centro de masa del circuito (AABB) 
+     * Renderiza la decoración del mapa de forma algorítmica.
+     * Calcula el centro de masa del circuito (AABB) 
      * para proyectar el césped infinito de fondo. Usa "srand(semilla)" para que los 
      * elementos procedimentales (árboles, edificios de Mónaco o tribunas de Silverstone) 
      * se generen en ubicaciones idénticas en cada fotograma sin consumir memoria en disco.
@@ -340,8 +339,8 @@ public:
     }
 
     /**
-     * @brief Construye la malla 3D de la pista uniendo los nodos mediante primitivas de triángulos.
-     * Explicación para tu exposición: Recorre los nodos en parejas (A y B). Usando el vector lateral
+     * Construye la malla 3D de la pista uniendo los nodos mediante primitivas de triángulos.
+     * Recorre los nodos en parejas (A y B). Usando el vector lateral
      * de cada nodo, extrae los extremos izquierdos y derechos de la carretera. Con estos extremos forma 
      * los triángulos 3D del asfalto, las zonas de escape (runoffs), los pianos bicolores en curvas y 
      * muros físicos verticales para dar volumen volumétrico 3D al juego.
@@ -455,8 +454,8 @@ public:
     }
 
     /**
-     * @brief Dibuja la línea de meta en formato de damero (cuadros blancos y negros).
-     * Explicación para tu exposición: Se posiciona exactamente sobre el Nodo 0 de la pista. 
+     * Dibuja la línea de meta en formato de damero (cuadros blancos y negros).
+     * Se posiciona exactamente sobre el Nodo 0 de la pista. 
      * Divide el ancho de la pista en pequeños segmentos (cuadros) de tamaño fijo (sw) y pinta 
      * alternando colores usando el operador mod (i % 2) para formar el clásico patrón de bandera de carreras.
      */
