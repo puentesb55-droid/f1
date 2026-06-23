@@ -9,7 +9,7 @@
 
 // ═══════════════════════════════════════════════════════════
 //  CLASE RENDERER (SISTEMA GRÁFICO)
-//  Explicación general: Esta clase es el motor gráfico encargado de 
+//  Esta clase es el motor gráfico encargado de 
 //  proyectar y dibujar toda la parte visual del simulador en la pantalla 
 //  (objetos 3D, efectos ambientales de clima, rastro de llantas y la interfaz HUD).
 // ═══════════════════════════════════════════════════════════
@@ -18,7 +18,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  AUTO F1 REALISTA (Geometría procedural detallada)
-    //  Explicación para tu exposición: En lugar de cargar un pesado modelo 3D
+    //  En lugar de cargar un pesado modelo 3D
     //  externo (.obj o .fbx), esta función construye el monoplaza en tiempo de
     //  ejecución de forma procedural combinando primitivas geométricas (cubos y cilindros)
     //  y aplicando transformaciones espaciales basadas en matrices de rotación.
@@ -161,7 +161,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  RASTRO DE NEUMÁTICOS (Skidmarks en el asfalto)
-    //  Explicación para tu exposición: Dibuja líneas físicas 3D justo encima de la pista (`y + 0.01f`)
+    //  Dibuja líneas físicas 3D justo encima de la pista (`y + 0.01f`)
     //  para evitar el efecto óptico de parpadeo (*Z-Fighting*). Recorre el vector histórico de derrapes 
     //  guardado en el objeto Auto y conecta los puntos secuencialmente creando la marca de goma quemada.
     // ────────────────────────────────────────────────────────
@@ -187,7 +187,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  SKYBOX / COLOR DE ENTORNO
-    //  Explicación para tu exposición: Modifica el color de fondo de la pantalla utilizando la
+    //  Modifica el color de fondo de la pantalla utilizando la
     //  función ClearBackground de Raylib de acuerdo al enumerador meteorológico (Clima) de la simulación.
     // ────────────────────────────────────────────────────────
     static void DrawSkybox(Clima clima) {
@@ -204,7 +204,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  EFECTO AMBIENTAL: LLUVIA 3D DINÁMICA
-    //  Explicación para tu exposición: Es un sistema de partículas ambientales. Genera líneas 3D
+    //  Es un sistema de partículas ambientales. Genera líneas 3D
     //  aleatorias rodeando el frustum de la cámara (`spread`) en cada cuadro. Al reiniciar la semilla (`srand`)
     //  con base en el tiempo de juego, las gotas dan el efecto óptico de caer velozmente con inclinación.
     // ────────────────────────────────────────────────────────
@@ -228,7 +228,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  HUD (Heads-Up Display / INTERFAZ 2D EN PANTALLA)
-    //  Explicación para tu exposición: Dibuja toda la instrumentación digital en 2D superpuesta
+    //  Dibuja toda la instrumentación digital en 2D superpuesta
     //  a los gráficos 3D. Muestra velocímetro, posiciones relativas, tiempos por vuelta y alertas de pérdida de control.
     // ────────────────────────────────────────────────────────
     static void DrawHUD(const ConfigCarrera& cfg, const Auto& player,
@@ -308,7 +308,7 @@ public:
 
     // ────────────────────────────────────────────────────────
     //  MENÚ OVERLAY (Paneles de pausa / Opciones principales)
-    //  Explicación para tu exposición: Dibuja un menú contextual 2D centrado de forma matemática 
+    //  Dibuja un menú contextual 2D centrado de forma matemática 
     //  en el eje de coordenadas de la ventana, calculando dinámicamente las dimensiones según las 
     //  cadenas de texto guardadas en el vector `opciones` e iluminando la opción `seleccionado`.
     // ────────────────────────────────────────────────────────
